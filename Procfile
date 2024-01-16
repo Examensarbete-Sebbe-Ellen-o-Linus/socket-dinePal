@@ -1,1 +1,1 @@
-web: node /dist socketServer.js
+web: node dist/socketServer.js
