@@ -8,14 +8,15 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: 'https://dine-pal.vercel.app', // Frontend domain
+    origin: 'http//localhost:5173', // Frontend domain
+    methods: ['GET', 'POST'],
   })
 );
 
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
   cors: {
-    origin: 'https://dine-pal.vercel.app',
+    origin: 'http://localhost:5173',
     methods: ['GET', 'POST'],
   },
 });
@@ -26,6 +27,15 @@ io.on('connection', (socket) => {
   socket.on('orderCreated', (order) => {
     io.emit('orderCreated', order);
   });
+
+  socket.on('message', () => {
+    console.log('message received from client');
+    io.emit('message', 'message sent from socket server123');
+  });
+
+  socket.on('disconnect', () => {
+    console.log('user disconnected');
+  });
 });
 
 // httpServer.listen(3001, '0.0.0.0', () => {
@@ -35,6 +45,6 @@ httpServer.listen(3001, () => {
 
 app.post('/ordercreated', (req, res) => {
   const order = req.body.order;
-  io.emit('orderCreated', 'message sent thourgh socket emit');
+  io.emit('orderCreated', 'message sent through socket emit');
   res.status(200).json('notification sent from socket server');
 });
