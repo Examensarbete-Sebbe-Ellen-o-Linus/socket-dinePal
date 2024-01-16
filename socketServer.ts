@@ -38,9 +38,10 @@ io.on('connection', (socket) => {
   });
 });
 
-// httpServer.listen(3001, '0.0.0.0', () => {
-httpServer.listen('https://socket-dine-pal.vercel.app', () => {
-  console.log('listening on :live server');
+const PORT = process.env.PORT || 3001;
+
+httpServer.listen(PORT, () => {
+  console.log(`Listening to port: ${PORT}`);
 });
 
 app.post('/ordercreated', (req, res) => {
