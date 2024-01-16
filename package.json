@@ -8,7 +8,9 @@
     "build": "tsc",
     "heroku-postbuild": "npm run build",
     "dev": "nodemon socketServer.ts"
-
+  },
+  "engines": {
+    "node": "20.10.0"
   },
   "keywords": [],
   "author": "",
