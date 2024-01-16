@@ -39,8 +39,8 @@ io.on('connection', (socket) => {
 });
 
 // httpServer.listen(3001, '0.0.0.0', () => {
-httpServer.listen(3001, () => {
-  console.log('listening on :3001');
+httpServer.listen('https://socket-dine-pal.vercel.app', () => {
+  console.log('listening on :live server');
 });
 
 app.post('/ordercreated', (req, res) => {
