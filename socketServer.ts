@@ -8,7 +8,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: 'https://dine-pal.vercel.app',
+    origin: 'https://dine-pal.vercel.app/testpage',
     methods: ['GET', 'POST'],
   })
 );
@@ -16,7 +16,7 @@ app.use(
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
   cors: {
-    origin: 'https://dine-pal.vercel.app',
+    origin: 'https://dine-pal.vercel.app/testpage',
     methods: ['GET', 'POST'],
   },
 });
