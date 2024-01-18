@@ -24,8 +24,8 @@ const io = new Server(httpServer, {
 io.on('connection', (socket) => {
   console.log('a user connected');
 
-  socket.on('orderCreated', (order) => {
-    io.emit('orderCreated', order);
+  socket.on('orderCreated', () => {
+    io.emit('orderCreated', 'a new order has been created');
   });
 
   socket.on('message', () => {
