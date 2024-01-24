@@ -33,6 +33,10 @@ io.on('connection', (socket) => {
     io.emit('message', 'message sent from socket server123');
   });
 
+  socket.on('bookingCreated', () => {
+    io.emit('bookingCreated', 'a new booking has been created');
+  });
+
   socket.on('disconnect', () => {
     console.log('user disconnected');
   });
