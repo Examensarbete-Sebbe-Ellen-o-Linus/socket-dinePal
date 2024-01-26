@@ -11,6 +11,7 @@ app.use(
     origin: [
       'https://dine-pal.vercel.app',
       'https://6320-94-246-102-106.ngrok-free.app/',
+      'http://localhost:3000',
     ],
     methods: ['GET', 'POST'],
   })
