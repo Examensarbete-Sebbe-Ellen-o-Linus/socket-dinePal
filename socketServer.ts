@@ -8,7 +8,10 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: 'https://dine-pal.vercel.app',
+    origin: [
+      'https://dine-pal.vercel.app',
+      'https://6320-94-246-102-106.ngrok-free.app/',
+    ],
     methods: ['GET', 'POST'],
   })
 );
